@@ -24,10 +24,32 @@ parts:
           cp -ra ./rel $SNAPCRAFT_PART_INSTALL
           cp -ra ./bin $SNAPCRAFT_PART_INSTALL
         build-packages:
+          - binutils
+          - libc6-dev
+          - gcc
+          - g++
+          - make
           - erlang-dev
+          - erlang-base-hipe
+          - erlang-reltool
           - libcurl4-openssl-dev
           - libmozjs185-dev
           - libnspr4-dev
+          - libicu-dev
+          - icu-devtools
+          # For erlang/rebar processing
+          #- erlang-ic
+          #- erlang-manpages
+          - erlang-nox
+          - erlang-os-mon
+          #- erlang-parsetools
+          #- erlang-percept
+          - erlang-syntax-tools
+          #- erlang-xmerl
+          # For fauxton
+          - nodejs-dev
+          - nodejs-legacy
+          - npm
         stage:
             - rel
             - bin
@@ -37,7 +59,7 @@ parts:
 
     snap-config:
         plugin: dump
-        source: ./snap/
+        source: ./snapcfg/
         organize:
             snap.ini: rel/couchdb/etc/snap.ini
             snap_run: rel/couchdb/bin/snap_run
