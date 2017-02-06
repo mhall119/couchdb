@@ -9,7 +9,7 @@ apps:
     server:
         daemon: simple
         command: rel/couchdb/bin/snap_run
-        plugs: [network-bind, browser-support, mount-observe]
+        plugs: [network-bind, mount-observe]
     couchdb:
         command: rel/couchdb/bin/snap_run
         plugs: [network-bind]
